@@ -1,7 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
 import Result from "./Result";
 
@@ -29,15 +28,6 @@ const useStyles = makeStyles({
   }
 });
 
-const mockResults = [
-  {
-    Title: "hellow"
-  },
-  {
-    Title: "d"
-  }
-];
-
 const Results = ({ results = [], onClick }) => {
   const classes = useStyles();
   return (
@@ -45,7 +35,7 @@ const Results = ({ results = [], onClick }) => {
       <Paper className={classes.root}>
         <Container maxWidth="sm">
           {results.map(result => (
-            <Result onClick={onClick} result={result} />
+            <Result key={result.imdbID} onClick={onClick} result={result} />
           ))}
         </Container>
       </Paper>

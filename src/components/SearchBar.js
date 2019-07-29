@@ -1,49 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import  Results from './Results'
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from "@material-ui/icons/Search";
+import Results from "./Results";
 
+const useStyles = makeStyles({
+  wrapper: {
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: 'column',
+  },
+  root: {
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
+  },
+  input: {
+    padding: 2,
+    marginLeft: 8,
+    flex: 1
+  },
+  iconButton: {
+    padding: 10
+  },
+  divider: {
+    width: 1,
+    height: 28,
+    margin: 4
+  }
+});
 
-// const SearchBar = () => {
-//     const [value, setValue] = useState('');
-  
-//     const handleChange = async event => {
-//         setValue(event.target.value)
-//         const { data: { Search: results } } = await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=c471e040&s=${value}`);
+export default function SearchBar({ onClick, onQuery, placeholder }) {
+  const classes = useStyles();
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
-//     };
-  
-//     return (
-//       <div>
-//           <input type="text" value={value} onChange={handleChange} />
-//       </div>
-//     );
-//   };
+  useEffect(() => {
+    async function fetchMovies() {
+      const data = await onQuery(query)
 
-// export default SearchBar;
-
-class SearchBar extends React.Component {
-    state = { value: '', results: [] }
-    // const [value, setValue] = useState('');
-  
-    handleChange = async event => {
-        this.setState({value: event.target.value});
-        const { data: { Search: results } } = await axios.get(`http://www.omdbapi.com/?apikey=c471e040&s=${this.state.value}`);
-        
-        if(results) {
-            this.setState({ results });
-        }
-    };
-    
-    render() {
-        return (
-            <div>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-                <Results results={this.state.results} />
-            </div>
-          );
+      if(data) {
+        setResults(data);
+      } else if(query === ''){
+        setResults([]);
+      }
     }
+    fetchMovies();
+  }, [query, onQuery]);
 
-  };
 
-export default SearchBar;
-
+  return (
+    <div className={classes.wrapper}>
+      <Paper className={classes.root}>
+        <SearchIcon className={classes.iconButton} aria-label="search" />
+        <InputBase
+          onChange={e => setQuery(e.target.value)}
+          className={classes.input}
+          placeholder={placeholder}
+          inputProps={{ "aria-label": placeholder }}
+        />
+      </Paper>
+      <Results results={results} onClick={onClick}/>
+    </div>
+  );
+}

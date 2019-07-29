@@ -1,42 +1,50 @@
 import React from "react";
-import { connect } from 'react-redux';
-import "./App.css";
+import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchBarV2 from "./components/SearchBarV2";
-import Movie from "./components/Movie";
-import { changeView, setMovie } from './actions';
+import SearchBar from "./components/SearchBar";
+import Movie from "./components/Movie/Movie";
+import { changeView } from "./actions/view.actions";
+import { setMovie } from "./actions/movie.actions";
+import { searchMovies } from './api';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    backgroundColor: '#eeeeee',
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   }
 }));
 
-function App({view, viewMovie}) {
+function App({ view, viewMovie }) {
   const classes = useStyles();
 
-  if(view === 'movie') {
-    return <Movie />
+  if (view === "movie") {
+    return <Movie />;
   }
 
   return (
     <div className={classes.root}>
-      <SearchBarV2 onClick={viewMovie} />
+      <SearchBar
+        onQuery={searchMovies} 
+        onClick={viewMovie} 
+        placeholder="Search Movies"
+        />
     </div>
   );
-
 }
 
 const mapStateToProps = state => ({
-  view: state.view,
-})
+  view: state.view
+});
 
 const mapDispatchToProps = dispatch => ({
   viewMovie: movie => {
-    dispatch(changeView('movie'));
+    dispatch(changeView("movie"));
     dispatch(setMovie(movie));
-  }, 
-})
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+  }
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

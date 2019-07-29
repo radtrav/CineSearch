@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -42,7 +42,7 @@ const Result = ({ result, onClick }) => {
           </CardContent>
           <div className={classes.controls} />
         </div>
-        <CardMedia image={result.Poster} title="Movie Poster" />
+        <CardMedia image='https://via.placeholder.com/90' title="Movie Poster" />
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
-import { CHANGE_VIEW, SET_MOVIE } from "../actions";
+import { SET_MOVIE } from "../actions/movie.actions";
+import { CHANGE_VIEW } from "../actions/view.actions";
 
 const initState = {
   movie: null,
-  view: "search"
+  view: "movie"
 };
 
 const rootReducer = (state = initState, action) => {
