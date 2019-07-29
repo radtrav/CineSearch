@@ -39,6 +39,7 @@ const useStyles = makeStyles({
 export default function SearchBar({ onClick, onQuery, placeholder }) {
   const classes = useStyles();
   const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
   const [results, setResults] = useState([]);
 
   useEffect(() => {

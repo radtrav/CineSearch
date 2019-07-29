@@ -34,7 +34,7 @@ function App({ view, viewMovie, movie, movieSelected }) {
 const mapStateToProps = state => ({
   view: state.view,
   movie: state.movie,
-  movieSelected: Object.getOwnPropertyNames(state.movie).length,
+  movieSelected: Object.getOwnPropertyNames(state.movie).length > 0,
 });
 
 const mapDispatchToProps = dispatch => ({

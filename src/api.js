@@ -17,3 +17,5 @@ export const fetchMovieById = async id => {
 
     return data;
 };
+
+export const getPosterUrl = imdbID => `http://img.omdbapi.com/?i=${imdbID}&h=600&apikey=${API_KEY}`;

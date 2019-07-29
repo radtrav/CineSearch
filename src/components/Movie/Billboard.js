@@ -5,6 +5,7 @@ import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import { getPosterUrl } from '../../api';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -80,7 +81,7 @@ const Billboard = ({ title, genre, imdbID, rating }) => {
         </Grid>
         <Grid item xs={8}>
           <div >
-          <img src={`http://img.omdbapi.com/?i=${imdbID}&h=600&apikey=297cef65`} className={classes.poster} alt="Smiley face"/>
+          <img src={getPosterUrl(imdbID)} className={classes.poster} alt="Poster"/>
           </div>
         </Grid>
       </Grid>
