@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     padding: 8,
     border: " 1px solid #e0e0e0",
     backgroundColor: "#EEEEEE",
-    maxWidth: 42,
+    maxWidth: 60,
     maxHeight: 100,
   },
   star: {
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const RatingsBox = ({ rating }) => {
+const RatingsBox = ({ rating, imdbID }) => {
   const classes = useStyles();
   return (
     <div className={classes.ratingsBox}>
@@ -61,7 +61,7 @@ const RatingsBox = ({ rating }) => {
 };
 
 
-const Billboard = ({ title, genre, poster, rating }) => {
+const Billboard = ({ title, genre, imdbID, rating }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
@@ -80,7 +80,7 @@ const Billboard = ({ title, genre, poster, rating }) => {
         </Grid>
         <Grid item xs={8}>
           <div >
-          <img src="http://img.omdbapi.com/?i=tt3896198&h=600&apikey=297cef65" className={classes.poster} alt="Smiley face"/>
+          <img src={`http://img.omdbapi.com/?i=${imdbID}&h=600&apikey=297cef65`} className={classes.poster} alt="Smiley face"/>
           </div>
         </Grid>
       </Grid>

@@ -42,31 +42,23 @@ const mockMovie = {
 
 const useStyles = makeStyles();
 
-const TitleCard = () => {
-  const classes = useStyles();
-  return (
-    <Card>
-      <div> hellow </div>
-    </Card>
-  );
-};
-
-const Movie = ({ movie }) => {
+const Movie = ({ movie = {} }) => {
   return (
     <div>
       <Billboard
-        title={mockMovie.Title}
-        genre={mockMovie.Genre}
-        rating={mockMovie.imdbRating}
-        poster={mockMovie.poster}
+        title={movie.Title}
+        genre={movie.Genre}
+        rating={movie.imdbRating}
+        poster={movie.poster}
+        imdbID={movie.imdbID}
        
       />
       <About 
-        plot={mockMovie.Plot}
-        title={mockMovie.Title}
-        actors={mockMovie.Actors}
-        director={mockMovie.Director}
-        released={mockMovie.Released}
+        plot={movie.Plot}
+        title={movie.Title}
+        actors={movie.Actors}
+        director={movie.Director}
+        released={movie.Released}
       />
     </div>
   );

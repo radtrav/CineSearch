@@ -32,10 +32,7 @@ const useStyles = makeStyles({
     margin: 4
   },
   results: {
-    zIndex: 999,
-    position: 'absolute',
-    marginLeft: -89,
-    marginTop: 44,
+
   }
 });
 

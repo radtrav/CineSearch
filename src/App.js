@@ -19,28 +19,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function App({ view, viewMovie }) {
+function App({ view, viewMovie, movie, movieSelected }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <TopBar />
       <CssBaseline />
-      {view === "movie" ? (
-        <Movie />
-      ) : (
-        <SearchBar
-          onQuery={searchMovies}
-          onClick={viewMovie}
-          placeholder="Search Movies"
-        />
-      )}
+     { movieSelected && <Movie movie={movie} />}
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-  view: state.view
+  view: state.view,
+  movie: state.movie,
+  movieSelected: Object.getOwnPropertyNames(state.movie).length,
 });
 
 const mapDispatchToProps = dispatch => ({
