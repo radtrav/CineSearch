@@ -1,35 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
 import SearchBar from "./components/SearchBar";
 import Movie from "./components/Movie/Movie";
+import TopBar from "./components/Layout/TopBar";
 import { changeView } from "./actions/view.actions";
 import { setMovie } from "./actions/movie.actions";
-import { searchMovies } from './api';
+import { searchMovies } from "./api";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#eeeeee',
+    backgroundColor: "#eeeeee",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    width: "100vw",
+    height: "100vh",
+    flexDirection: "column"
   }
 }));
 
 function App({ view, viewMovie }) {
   const classes = useStyles();
 
-  if (view === "movie") {
-    return <Movie />;
-  }
-
   return (
     <div className={classes.root}>
-      <SearchBar
-        onQuery={searchMovies} 
-        onClick={viewMovie} 
-        placeholder="Search Movies"
+      <TopBar />
+      <CssBaseline />
+      {view === "movie" ? (
+        <Movie />
+      ) : (
+        <SearchBar
+          onQuery={searchMovies}
+          onClick={viewMovie}
+          placeholder="Search Movies"
         />
+      )}
     </div>
   );
 }

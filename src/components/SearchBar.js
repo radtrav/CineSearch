@@ -23,12 +23,19 @@ const useStyles = makeStyles({
     flex: 1
   },
   iconButton: {
-    padding: 10
+    padding: 10, 
+    fontSize: 'xx-large',
   },
   divider: {
     width: 1,
     height: 28,
     margin: 4
+  },
+  results: {
+    zIndex: 999,
+    position: 'absolute',
+    marginLeft: -89,
+    marginTop: 44,
   }
 });
 
@@ -62,7 +69,7 @@ export default function SearchBar({ onClick, onQuery, placeholder }) {
           inputProps={{ "aria-label": placeholder }}
         />
       </Paper>
-      <Results results={results} onClick={onClick}/>
+      <Results className={classes.results} results={results} onClick={onClick}/>
     </div>
   );
 }

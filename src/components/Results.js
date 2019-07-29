@@ -11,7 +11,13 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     width: 400,
-    flexDirection: "column"
+    flexDirection: "column",
+    zIndex: 999,
+    position: 'absolute',
+    marginLeft: -89,
+    marginTop: 44,
+    overflowY: 'auto',
+    maxHeight: 500,
   },
   input: {
     padding: 10,

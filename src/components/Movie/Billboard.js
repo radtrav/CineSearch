@@ -8,7 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginTop: 8,
   },
   genre: {
     color: "lightgrey"
@@ -40,9 +41,9 @@ const useStyles = makeStyles(theme => ({
   poster: {
     backgroundColor: 'lightgrey',
     maxWidth: '100%',
-    // maxHeight: 450,
+    height: 300,
     width: '100%',
-    overflow: 'hidden'
+    objectFit: 'cover',
   },
 }));
 
@@ -58,6 +59,7 @@ const RatingsBox = ({ rating }) => {
     </div>
   );
 };
+
 
 const Billboard = ({ title, genre, poster, rating }) => {
   const classes = useStyles();

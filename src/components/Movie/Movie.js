@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import { connect } from "react-redux";
 
 import Billboard from "./Billboard";
+import About from "./About";
 
 const mockMovie = {
   Title: "Harry Potter and the Deathly Hallows: Part 2",
@@ -58,6 +59,14 @@ const Movie = ({ movie }) => {
         genre={mockMovie.Genre}
         rating={mockMovie.imdbRating}
         poster={mockMovie.poster}
+       
+      />
+      <About 
+        plot={mockMovie.Plot}
+        title={mockMovie.Title}
+        actors={mockMovie.Actors}
+        director={mockMovie.Director}
+        released={mockMovie.Released}
       />
     </div>
   );

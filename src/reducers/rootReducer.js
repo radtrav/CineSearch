@@ -3,7 +3,7 @@ import { CHANGE_VIEW } from "../actions/view.actions";
 
 const initState = {
   movie: null,
-  view: "movie"
+  view: "d"
 };
 
 const rootReducer = (state = initState, action) => {
