@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,6 +6,7 @@ import Results from "./Results";
 import useStyles from "./SearchBar.styles";
 
 const  SearchBar= ({ onClick, onQuery, placeholder }) => {
+  const node = useRef();
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -23,18 +24,27 @@ const  SearchBar= ({ onClick, onQuery, placeholder }) => {
     fetchMovies();
   }, [query, onQuery]);
 
+  const handleClickOut = e => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    return setQuery('');
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOut);
+    return () => document.removeEventListener("mousedown", handleClickOut);
+  }, []);
+
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} ref={node}>
       <Paper className={classes.root}>
-        <SearchIcon className={classes.iconButton} aria-label="search" />
+        <SearchIcon className={classes.iconButton} />
         <InputBase
-          onBlur={() => setQuery('')}
-          autoFocus={true}
           onChange={e => setQuery(e.target.value)}
           value={query}
           className={classes.input}
           placeholder={placeholder}
-          inputProps={{ "aria-label": placeholder }}
         />
       </Paper>
       <Results className={classes.results} results={results} onClick={onClick} close={() => setQuery('')}/>

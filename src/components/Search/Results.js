@@ -11,7 +11,7 @@ const Results = ({ results = [], onClick, close }) => {
     results.length > 0 && (
       <Paper className={classes.root}>
         <Container maxWidth="sm">
-          <Typography className={classes.title} variant="subtitle" gutterBottom>
+          <Typography className={classes.title} variant="subtitle1" gutterBottom>
             Movies Found: {results.length}
           </Typography>
           {results.map(result => (

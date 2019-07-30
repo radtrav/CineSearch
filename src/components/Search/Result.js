@@ -1,6 +1,5 @@
 import React from "react";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./Result.styles";
 import { getPosterUrl } from "../../api";
@@ -23,13 +22,8 @@ const Result = ({ result, onClick, close, imdbID }) => {
               {result.Title}
             </Typography>
           </CardContent>
-          <div className={classes.controls} />
         </div>
-        <img
-          src={getPosterUrl(imdbID)}
-          className={classes.img}
-          alt="Poster"
-        />
+        <img src={getPosterUrl(imdbID)} className={classes.img} alt="Poster" />
       </div>
     </div>
   );
