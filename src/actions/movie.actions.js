@@ -10,15 +10,14 @@ export const setMovie = movie => ({
 
 export const fetchMovieInfo = id => ({
   type: FETCH_MOVIE_INFO,
-  payload: id,
-})
+  payload: id
+});
 
 export const fetchMovieInfoSuccess = movie => ({
   type: FETCH_MOVIE_INFO_SUCCESS,
-  payload: movie,
-})
-
+  payload: movie
+});
 
 export const fetchMovieInfoFailure = () => ({
-  type: FETCH_MOVIE_INFO_FAILURE,
-})
+  type: FETCH_MOVIE_INFO_FAILURE
+});

@@ -35,10 +35,6 @@ const TopBar = ({ view, viewMovie }) => {
             <IconButton color="inherit">
               <AccountCircle />
             </IconButton>
-            <Menu>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>My account</MenuItem>
-            </Menu>
           </div>
         </Toolbar>
       </AppBar>

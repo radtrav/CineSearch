@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     padding: 10,
     display: "flex",
     alignItems: "center",
-    width: 400,
+    width: 520,
     flexDirection: "column",
     zIndex: 999,
     position: 'absolute',
@@ -26,6 +26,11 @@ const useStyles = makeStyles({
     width: 1,
     height: 28,
     margin: 4
+  },
+  title: {
+    fontWeight: 500,
+    color: '#3f51b5',
+    marginLeft: 18,
   }
 });
 

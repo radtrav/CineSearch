@@ -28,6 +28,8 @@ const  SearchBar= ({ onClick, onQuery, placeholder }) => {
       <Paper className={classes.root}>
         <SearchIcon className={classes.iconButton} aria-label="search" />
         <InputBase
+          onBlur={() => setQuery('')}
+          autoFocus={true}
           onChange={e => setQuery(e.target.value)}
           value={query}
           className={classes.input}

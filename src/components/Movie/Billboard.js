@@ -13,7 +13,7 @@ const Billboard = ({ title, genre, imdbID, rating, actors }) => {
       <Grid container>
         <Grid item xs={8}>
           <div className={classes.paper}>
-            <Typography  lassName={classes.title} variant="h3" gutterBottom>
+            <Typography  className={classes.title} variant="h3" gutterBottom>
               {title}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary" gutterBottom>

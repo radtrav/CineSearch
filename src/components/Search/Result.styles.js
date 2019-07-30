@@ -8,7 +8,9 @@ const useStyles = makeStyles({
     }
   },
   card: {
-    display: "flex"
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   details: {
     display: "flex",
@@ -19,9 +21,12 @@ const useStyles = makeStyles({
     cursor: "pointer",
     flex: "1 0 auto"
   },
-  cover: {
-    width: 151
-  }
+  img: {
+    width: 50,
+    height: 50,
+    objectFit: 'cover',
+    borderRadius: 150,
+  },
 });
 
 export default useStyles;

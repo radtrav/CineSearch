@@ -3,8 +3,9 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./Result.styles";
+import { getPosterUrl } from "../../api";
 
-const Result = ({ result, onClick, close }) => {
+const Result = ({ result, onClick, close, imdbID }) => {
   const classes = useStyles();
 
   return (
@@ -24,9 +25,10 @@ const Result = ({ result, onClick, close }) => {
           </CardContent>
           <div className={classes.controls} />
         </div>
-        <CardMedia
-          image="https://via.placeholder.com/90"
-          title="Movie Poster"
+        <img
+          src={getPosterUrl(imdbID)}
+          className={classes.img}
+          alt="Poster"
         />
       </div>
     </div>
