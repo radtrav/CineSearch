@@ -10,7 +10,7 @@ const Results = ({ results = [], onClick, close }) => {
   return (
     results.length > 0 && (
       <Paper className={classes.root}>
-        <Container maxWidth="sm">
+        <Container maxWidth="md" className={classes.container} >
           <Typography className={classes.title} variant="subtitle1" gutterBottom>
             Movies Found: {results.length}
           </Typography>

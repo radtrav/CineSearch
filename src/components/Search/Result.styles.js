@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     borderBottom: "0.5px solid lightgrey",
     "&:hover": {
@@ -27,6 +27,12 @@ const useStyles = makeStyles({
     objectFit: 'cover',
     borderRadius: 150,
   },
-});
+  container: {
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  }
+}));
 
 export default useStyles;

@@ -11,7 +11,7 @@ const Billboard = ({ title, genre, imdbID, rating, actors }) => {
   return (
     <Paper className={classes.root}>
       <Grid container>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
           <div className={classes.paper}>
             <Typography  className={classes.title} variant="h3" gutterBottom>
               {title}
@@ -26,14 +26,12 @@ const Billboard = ({ title, genre, imdbID, rating, actors }) => {
             <div />
           </div>
         </Grid>
-        <Grid item xs={4}>
-          <div>
+        <Grid item xs={12} md={4}>
             <img
               src={getPosterUrl(imdbID)}
               className={classes.poster}
               alt="Poster"
             />
-          </div>
         </Grid>
       </Grid>
     </Paper>

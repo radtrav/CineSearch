@@ -1,10 +1,11 @@
 import React from "react";
 import CardContent from "@material-ui/core/CardContent";
+import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./Result.styles";
 import { getPosterUrl } from "../../api";
 
-const Result = ({ result, onClick, close, imdbID }) => {
+const Result = ({ result, onClick, close }) => {
   const classes = useStyles();
 
   return (
@@ -18,12 +19,18 @@ const Result = ({ result, onClick, close, imdbID }) => {
       <div className={classes.card}>
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <Typography component="h5" variant="subtitle1">
+            <Typography component="h6" variant="subtitle1">
               {result.Title}
             </Typography>
           </CardContent>
         </div>
-        <img src={getPosterUrl(imdbID)} className={classes.img} alt="Poster" />
+        <Hidden xsDown>
+          <img
+            src={getPosterUrl(result.imdbID)}
+            className={classes.img}
+            alt="Poster"
+          />
+        </Hidden>
       </div>
     </div>
   );

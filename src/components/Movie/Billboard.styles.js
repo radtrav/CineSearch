@@ -28,7 +28,6 @@ const useStyles = makeStyles({
       alignItems: "center",
       padding: 8,
       border: " 1px solid #e0e0e0",
-      backgroundColor: "#EEEEEE",
       maxWidth: 60,
       maxHeight: 100
     },

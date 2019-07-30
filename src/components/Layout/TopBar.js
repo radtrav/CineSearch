@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
+import Hidden from "@material-ui/core/Hidden";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
@@ -11,29 +12,31 @@ import { searchMovies } from "../../api";
 import SearchBar from "../Search/SearchBar";
 import useStyles from "./TopBar.styles";
 
-const TopBar = ({ view, viewMovie }) => {
+const TopBar = ({ viewMovie }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Cine Search
-          </Typography>
+          <Hidden xsDown>
+            <Typography variant="h6" className={classes.title}>
+              Cine Search
+            </Typography>
+          </Hidden>
           <SearchBar
             onQuery={searchMovies}
             onClick={viewMovie}
             placeholder="Search Movies"
           />
-          <div>
-            <IconButton color="inherit">
-              <AccountCircle />
-            </IconButton>
-          </div>
+            <Hidden xsDown>
+              <IconButton color="inherit">
+                <AccountCircle />
+              </IconButton>
+            </Hidden>
         </Toolbar>
       </AppBar>
     </div>

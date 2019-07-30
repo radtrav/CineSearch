@@ -14,7 +14,7 @@ const Movie = ({ movie = {} }) => {
   } = movie;
 
   return (
-    <Container style={{ maxWidth: 950 }}>
+    <Container maxWidth="xl">
       <Billboard
         title={movie.Title}
         genre={movie.Genre}
