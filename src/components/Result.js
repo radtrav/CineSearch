@@ -7,9 +7,9 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     borderBottom: "0.5px solid lightgrey",
-    '&:hover': {
-      background: "#f5f7f7",
-   },
+    "&:hover": {
+      background: "#f5f7f7"
+    }
   },
   card: {
     display: "flex"
@@ -28,11 +28,18 @@ const useStyles = makeStyles({
   }
 });
 
-const Result = ({ result, onClick }) => {
+const Result = (
+  { result, onClick, close }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} onClick={() => onClick(result)}>
+    <div
+      className={classes.root}
+      onClick={() => {
+        onClick(result);
+        close();
+      }}
+    >
       <div className={classes.card}>
         <div className={classes.details}>
           <CardContent className={classes.content}>
@@ -42,7 +49,10 @@ const Result = ({ result, onClick }) => {
           </CardContent>
           <div className={classes.controls} />
         </div>
-        <CardMedia image='https://via.placeholder.com/90' title="Movie Poster" />
+        <CardMedia
+          image="https://via.placeholder.com/90"
+          title="Movie Poster"
+        />
       </div>
     </div>
   );

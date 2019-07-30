@@ -34,14 +34,14 @@ const useStyles = makeStyles({
   }
 });
 
-const Results = ({ results = [], onClick }) => {
+const Results = ({ results = [], onClick, close }) => {
   const classes = useStyles();
   return (
     results.length > 0 && (
       <Paper className={classes.root}>
         <Container maxWidth="sm">
           {results.map(result => (
-            <Result key={result.imdbID} onClick={onClick} result={result} />
+            <Result key={result.imdbID} onClick={onClick} result={result} close={close} />
           ))}
         </Container>
       </Paper>

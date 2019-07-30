@@ -39,7 +39,6 @@ const useStyles = makeStyles({
 export default function SearchBar({ onClick, onQuery, placeholder }) {
   const classes = useStyles();
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -55,6 +54,9 @@ export default function SearchBar({ onClick, onQuery, placeholder }) {
     fetchMovies();
   }, [query, onQuery]);
 
+  const close = () => {
+    setQuery('');
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -62,12 +64,13 @@ export default function SearchBar({ onClick, onQuery, placeholder }) {
         <SearchIcon className={classes.iconButton} aria-label="search" />
         <InputBase
           onChange={e => setQuery(e.target.value)}
+          value={query}
           className={classes.input}
           placeholder={placeholder}
           inputProps={{ "aria-label": placeholder }}
         />
       </Paper>
-      <Results className={classes.results} results={results} onClick={onClick}/>
+      <Results className={classes.results} results={results} onClick={onClick} close={() => setQuery('')}/>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export const searchMovies = async query => {
 
 export const fetchMovieById = async id => {
     const { data } = await axios(
-        `${OMDB_URL}/?apikey=${API_KEY}&i=${id}`
+        `${OMDB_URL}/?apikey=${API_KEY}&i=${id}&plot=full`
     );
 
     return data;

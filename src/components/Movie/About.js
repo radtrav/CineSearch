@@ -8,15 +8,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: 8,
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingLeft: 16,
-    paddingRight: 16
+    marginTop: 24,
+    padding: 24,
   },
   plot: {
     borderBottom: "1px solid lightgrey",
-    paddingBottom: 8
+    paddingBottom: 24,
   },
   poster: {
     backgroundColor: "lightgrey",
@@ -29,32 +26,37 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   info: {
-    padding: 24,
+    padding: 24
   },
-
+  infoTitle: {
+    paddingTop: 16,
+  }
 }));
 
-const About = ({ plot, rated, actors, director, released, title }) => {
+const About = ({ info, plot }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
+      <Typography variant="h5" gutterBottom>
+        Plot
+      </Typography>
       <div className={classes.plot}>
         <Typography variant="body2"> {plot} </Typography>
       </div>
+      <Typography className={classes.infoTitle} variant="h5" gutterBottom>
+          Info
+        </Typography>
       <div className={classes.infoWrapper}>
+
         <div className={classes.info}>
-          <Typography variant="body2">Title: </Typography>
-          <Typography variant="body2">Released: </Typography>
-          <Typography variant="body2">Actors: </Typography>
-          <Typography variant="body2">Rated: </Typography>
-          <Typography variant="body2">Director: </Typography>
+          {Object.keys(info).map(key => (
+            <Typography variant="body2"> {key} </Typography>
+          ))}
         </div>
         <div className={classes.info}>
-          <Typography variant="body2">{title} </Typography>
-          <Typography variant="body2">{released} </Typography>
-          <Typography variant="body2">{actors} </Typography>
-          <Typography variant="body2">{rated} </Typography>
-          <Typography variant="body2">{director} </Typography>
+          {Object.values(info).map(value => (
+            <Typography variant="body2"> {value} </Typography>
+          ))}
         </div>
       </div>
     </Paper>
