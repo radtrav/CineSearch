@@ -7,3 +7,5 @@ For styling I used Material and JSS, which I find to be a very simple solutions 
 ### How to Run
 
 npm i && npm start
+
+Click input and seach a title for example Harry Potter. Click the title to see movie information.
