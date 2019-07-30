@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import Container from "@material-ui/core/Container";
 import Billboard from "./Billboard";

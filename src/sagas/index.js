@@ -1,7 +1,7 @@
 import { put, takeEvery, all, call } from "redux-saga/effects";
 import { SET_MOVIE } from "../actions/movie.actions";
 import { fetchMovieById } from "../api";
-import { setMovie, fetchMovieInfo, fetchMovieInfoSuccess, fetchMovieInfoFailure } from '../actions/movie.actions';
+import { fetchMovieInfo, fetchMovieInfoSuccess, fetchMovieInfoFailure } from '../actions/movie.actions';
 
 export function* fetchMovieInfoSaga({ payload: { imdbID } }) {
   try{

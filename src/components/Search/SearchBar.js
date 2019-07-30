@@ -1,42 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import Results from "./Results";
+import useStyles from "./SearchBar.styles";
 
-const useStyles = makeStyles({
-  wrapper: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center",
-    flexDirection: 'column',
-  },
-  root: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center",
-  },
-  input: {
-    padding: 2,
-    marginLeft: 8,
-    flex: 1
-  },
-  iconButton: {
-    padding: 10, 
-    fontSize: 'xx-large',
-  },
-  divider: {
-    width: 1,
-    height: 28,
-    margin: 4
-  },
-  results: {
-
-  }
-});
-
-export default function SearchBar({ onClick, onQuery, placeholder }) {
+const  SearchBar= ({ onClick, onQuery, placeholder }) => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -54,10 +23,6 @@ export default function SearchBar({ onClick, onQuery, placeholder }) {
     fetchMovies();
   }, [query, onQuery]);
 
-  const close = () => {
-    setQuery('');
-  }
-
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.root}>
@@ -74,3 +39,5 @@ export default function SearchBar({ onClick, onQuery, placeholder }) {
     </div>
   );
 }
+
+export default SearchBar;
